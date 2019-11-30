@@ -28,15 +28,19 @@ const App = () => {
 				<span>Soccer EPL</span>
 			</div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-				<Menu.Item key="6">
+				<Menu.Item key="1">
+          <Icon type="dashboard" />
+          <span className="nav-text">Dashboard</span>
+        </Menu.Item>
+				<Menu.Item key="2">
           <Icon type="appstore-o" />
           <span className="nav-text">Fixtures</span>
         </Menu.Item>
-        <Menu.Item key="4">
+        <Menu.Item key="3">
           <Icon type="bar-chart" />
           <span className="nav-text">Results</span>
         </Menu.Item>
-        <Menu.Item key="7">
+        <Menu.Item key="4">
           <Icon type="team" />
           <span className="nav-text">Team Standing</span>
         </Menu.Item>
