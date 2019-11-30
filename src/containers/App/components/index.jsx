@@ -17,44 +17,37 @@ const App = () => {
         left: 0,
       }}
     >
-      <div className="logo" />
+      <div className="logo" style={{
+				height: 32,
+				background: 'rgba(255, 255, 255, 0.2)',
+				margin: 16,
+				textAlign: 'center',
+				color: 'white',
+				fontSize: 20,
+			}}>
+				<span>Soccer EPL</span>
+			</div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-        <Menu.Item key="1">
-          <Icon type="user" />
-          <span className="nav-text">nav 1</span>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Icon type="video-camera" />
-          <span className="nav-text">nav 2</span>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <Icon type="upload" />
-          <span className="nav-text">nav 3</span>
+				<Menu.Item key="6">
+          <Icon type="appstore-o" />
+          <span className="nav-text">Fixtures</span>
         </Menu.Item>
         <Menu.Item key="4">
           <Icon type="bar-chart" />
-          <span className="nav-text">nav 4</span>
-        </Menu.Item>
-        <Menu.Item key="5">
-          <Icon type="cloud-o" />
-          <span className="nav-text">nav 5</span>
-        </Menu.Item>
-        <Menu.Item key="6">
-          <Icon type="appstore-o" />
-          <span className="nav-text">nav 6</span>
+          <span className="nav-text">Results</span>
         </Menu.Item>
         <Menu.Item key="7">
           <Icon type="team" />
-          <span className="nav-text">nav 7</span>
-        </Menu.Item>
-        <Menu.Item key="8">
-          <Icon type="shop" />
-          <span className="nav-text">nav 8</span>
+          <span className="nav-text">Team Standing</span>
         </Menu.Item>
       </Menu>
     </Sider>
     <Layout style={{ marginLeft: 200 }}>
-      <Header style={{ background: '#fff', padding: 0 }} />
+      <Header style={{
+				background: '#fff', padding: '0 16px', textAlign: 'right'
+			}}>
+				Hello Scoccer Fans!
+			</Header>
       <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
 				<Switch>
 					<Route exact path={'/'} component={Dashboard} />
