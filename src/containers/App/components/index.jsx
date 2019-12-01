@@ -52,7 +52,11 @@ const App = () => {
 			}}>
 				Hello Scoccer Fans!
 			</Header>
-      <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+      <Content style={{
+				margin: '24px 16px 0',
+				overflow: 'initial',
+				minHeight: 'calc(100vh - 88px)',
+			}}>
 				<Switch>
 					<Route exact path={'/'} component={Dashboard} />
 				</Switch>
