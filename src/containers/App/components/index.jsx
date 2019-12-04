@@ -1,12 +1,17 @@
 import React from "react";
-import { Switch, Route } from 'react-router-dom';
-import Dashboard from '../../Dashboard';
+import { Switch, Route, Link } from 'react-router-dom';
 import Layout from 'antd/es/layout';
 import Menu from 'antd/es/menu';
 import Icon from 'antd/es/icon';
+import Dashboard from '../../Dashboard';
+import TeamStanding from '../../TeamStanding';
+import Fixtures from '../../Fixtures';
+import Results from '../../Results';
+
 const { Header, Content, Sider } = Layout;
 
-const App = () => {
+const App = ({ location: { pathname } }) => {
+	const [, menuKey] = pathname.split('/');
 	return (
 	<Layout>
     <Sider
@@ -27,22 +32,30 @@ const App = () => {
 			}}>
 				<span>Soccer EPL</span>
 			</div>
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-				<Menu.Item key="1">
-          <Icon type="dashboard" />
-          <span className="nav-text">Dashboard</span>
+      <Menu theme="dark" mode="inline" selectedKeys={[menuKey || 'dashboard']}>
+				<Menu.Item key="dashboard">
+					<Link to="/">
+						<Icon type="dashboard" />
+						<span className="nav-text">Dashboard</span>
+					</Link>
         </Menu.Item>
-				<Menu.Item key="2">
-          <Icon type="appstore-o" />
-          <span className="nav-text">Fixtures</span>
+				<Menu.Item key="fixtures">
+					<Link to="/fixtures">
+						<Icon type="appstore-o" />
+						<span className="nav-text">Fixtures</span>
+					</Link>
         </Menu.Item>
-        <Menu.Item key="3">
-          <Icon type="bar-chart" />
-          <span className="nav-text">Results</span>
+        <Menu.Item key="results">
+					<Link to="/results">
+						<Icon type="bar-chart" />
+						<span className="nav-text">Results</span>
+					</Link>
         </Menu.Item>
-        <Menu.Item key="4">
-          <Icon type="team" />
-          <span className="nav-text">Team Standing</span>
+        <Menu.Item key="team-standing">
+					<Link to="/team-standing">
+						<Icon type="team" />
+						<span className="nav-text">Team Standing</span>
+					</Link>
         </Menu.Item>
       </Menu>
     </Sider>
@@ -59,6 +72,9 @@ const App = () => {
 			}}>
 				<Switch>
 					<Route exact path={'/'} component={Dashboard} />
+					<Route exact path={'/team-standing'} component={TeamStanding} />
+					<Route exact path={'/results'} component={Results} />
+					<Route exact path={'/fixtures'} component={Fixtures} />
 				</Switch>
       </Content>
     </Layout>
