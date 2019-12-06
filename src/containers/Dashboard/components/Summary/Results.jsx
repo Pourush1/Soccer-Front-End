@@ -13,12 +13,14 @@ const columns = [
     dataIndex: 'goals1',
   },
   {
-    title: 'Team 2',
-    dataIndex: 'team2',
+    title: 'Goals 2',
+    className: 'column-right-align-text',
+    dataIndex: 'goals2',
   },
   {
-    title: 'Goals 2',
-    dataIndex: 'goals2',
+    title: 'Team 2',
+    className: 'column-right-align-text',
+    dataIndex: 'team2',
   },
 ];
 const data = [
