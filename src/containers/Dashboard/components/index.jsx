@@ -5,14 +5,20 @@ import Card from 'antd/es/card';
 import TeamStandingSummary from './Summary/TeamStanding';
 import ResultsSummary from './Summary/Results';
 
-const Dashboard = () => {
+const Dashboard = ({
+	teamStandingData,
+	fetchTeamStanding,
+}) => {
 	return (
 		<div>
 			<h2>Dashboard</h2>
 			<Row gutter={16}>
 				<Col span={12}>
 					<Card title="Team Standing">
-						<TeamStandingSummary />
+						<TeamStandingSummary {...{
+							teamStandingData,
+							fetchTeamStanding,
+						}} />
 					</Card>
 				</Col>
 				<Col span={12}>

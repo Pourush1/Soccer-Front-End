@@ -1,56 +1,37 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import Table from 'antd/es/table';
 import Button from 'antd/es/button';
 
 const columns = [
   {
     title: 'Position',
-    dataIndex: 'position',
+    dataIndex: 'rank',
   },
   {
-    title: 'Short Name',
-    dataIndex: 'shortName',
+    title: 'Team Name',
+    dataIndex: 'teamName',
   },
   {
     title: 'Played',
-    dataIndex: 'played',
+    dataIndex: 'all',
+    render: data => data.matchsPlayed,
   },
   {
     title: 'Goal Difference',
-    dataIndex: 'goalDifference',
+    dataIndex: 'goalsDiff',
   },
   {
     title: 'Points',
     dataIndex: 'points',
   },
 ];
-const data = [
-  {
-    key: '1',
-    position: 1,
-    shortName: 'MCI',
-    played: 22,
-    goalDifference: 23,
-    points: 21,
-  },
-  {
-    key: '2',
-    position: 2,
-    shortName: 'CHE',
-    played: 22,
-    goalDifference: 23,
-    points: 21,
-  },
-  {
-    key: '3',
-    position: 3,
-    shortName: 'TOT',
-    played: 22,
-    goalDifference: 23,
-    points: 21,
-  },
-];
-const TeamStanding = () => {
+
+const TeamStanding = ({
+  teamStandingData,
+  fetchTeamStanding,
+}) => {
+  useEffect(() => { fetchTeamStanding() }, []); // eslint-disable-line
+  const data = teamStandingData.slice(0, 5);
   return (
     <Fragment>
       <Table
@@ -58,10 +39,11 @@ const TeamStanding = () => {
         dataSource={data}
         size="middle"
         pagination={false}
+        rowKey="team_id"
       />
       <Button style={{ marginTop: 16 }} type="primary">View More</Button>
     </Fragment>
-    
+
   );
 }
 
